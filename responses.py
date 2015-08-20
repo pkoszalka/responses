@@ -11,7 +11,10 @@ from functools import update_wrapper
 from cookies import Cookies
 from requests.utils import cookiejar_from_dict
 from requests.exceptions import ConnectionError
-from requests.sessions import REDIRECT_STATI
+try:
+    from requests.sessions import REDIRECT_STATI
+except ImportError:
+    from requests.models import REDIRECT_STATI
 
 try:
     from requests.packages.urllib3.response import HTTPResponse
